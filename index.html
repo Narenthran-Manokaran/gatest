@@ -20,11 +20,12 @@
       window.addEventListener(
         "message",
         (e) => {
-          const receiveMessage = JSON.parse(e.data);
-          window.ReactNativeWebView.postMessage(receiveMessage.eventName);
-          analytics.logEvent(receiveMessage.eventName, {
-            ...receiveMessage.params,
-          });
+          // const receiveMessage = JSON.parse(e.data);
+          window.ReactNativeWebView.postMessage('window');
+          // analytics.logEvent(receiveMessage.eventName, {
+          //   ...receiveMessage.params,
+          // });
+          analytics.logEvent('window',{});
         },
         false
       );
@@ -32,11 +33,12 @@
       document.addEventListener(
         "message",
         (e) => {
-          const receiveMessage = JSON.parse(e.data);
-          window.ReactNativeWebView.postMessage(receiveMessage.eventName);
-          analytics.logEvent(receiveMessage.eventName, {
-            ...receiveMessage.params,
-          });
+          // const receiveMessage = JSON.parse(e.data);
+          window.ReactNativeWebView.postMessage('document');
+          // analytics.logEvent(receiveMessage.eventName, {
+          //   ...receiveMessage.params,
+          // });
+          analytics.logEvent('document',{});
         },
         false
       );
