@@ -36,7 +36,7 @@
           console.log("window received message:  " + e.data, e);
           const postMessage = JSON.parse(e?.data);
           console.log("window received message:  ", postMessage);
-          analytics.logEvent("face_app_test_window", postMessage);
+          analytics.logEvent("face_app_test_window", postMessage.params);
         },
         false
       );
@@ -47,7 +47,7 @@
           console.log("document received message:  " + e.data, e);
           const postMessage = JSON.parse(e?.data);
           console.log("document received message:  ", postMessage);
-          analytics.logEvent("face_app_test_document", postMessage);
+          analytics.logEvent("face_app_test_document", postMessage.params);
         },
         false
       );
