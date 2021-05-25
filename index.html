@@ -25,7 +25,21 @@
         (e) => {
           const postMessage = JSON.parse(e?.data);
           const { eventName = "", params = {} } = postMessage || {};
+          alert(eventName);
           if (eventName) {
+            analytics.logEvent(eventName, params);
+          }
+        },
+        false
+      );
+      
+      document.addEventListener(
+        "message",
+        (e) => {
+          const postMessage = JSON.parse(e?.data);
+          const { eventName = "", params = {} } = postMessage || {};
+          if (eventName) {
+            alert(eventName);
             analytics.logEvent(eventName, params);
           }
         },
