@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>face app dev</title>
+    <title>Face App</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
   </head>
   <body>
-    <h1>Face app dev</h1>
+    <h1>Face app GA test</h1>
+
     <script>
-  var firebaseConfig = {
+      var firebaseConfig = {
         apiKey: "AIzaSyA6WJKLL0oRC0pGmVNho0JP0sOSslib3gY",
         authDomain: "gatest-2a308.firebaseapp.com",
         projectId: "gatest-2a308",
@@ -20,32 +25,31 @@
       firebase.initializeApp(firebaseConfig);
       const analytics = firebase.analytics();
 
+      analytics.logEvent("face_app_test_init", {
+        appname: "face",
+        user: "RM",
+      });
+
       window.addEventListener(
         "message",
         (e) => {
-          if (window?.ReactNativeWebView) {
-             window.ReactNativeWebView.postMessage(e.data);
-          }
-          const postMessage = JSON.parse(e?.data);
-          const { eventName = "", params = {} } = postMessage || {};
-          if (eventName) {
-            analytics.logEvent(eventName, params);
-          }
+          console.log("window received message:  " + e.data, e);
+          analytics.logEvent("face_app_test_window", {
+            appname: "face",
+            user: "RM",
+          });
         },
         false
       );
-      
+
       document.addEventListener(
         "message",
         (e) => {
-          if (window?.ReactNativeWebView) {
-             window.ReactNativeWebView.postMessage(e.data);
-          }
-          const postMessage = JSON.parse(e?.data);
-          const { eventName = "", params = {} } = postMessage || {};
-          if (eventName) {
-            analytics.logEvent(eventName, params);
-          }
+          console.log("document received message:  " + e.data, e);
+          analytics.logEvent("face_app_test_document", {
+            appname: "face",
+            user: "RM",
+          });
         },
         false
       );
