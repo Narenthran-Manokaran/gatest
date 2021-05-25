@@ -4,9 +4,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
   </head>
   <body>
-    <h1>Test 12</h1>
+    <h1>Test 13</h1>
     <script>
-      var firebaseConfig = {
+      const firebaseConfig = {
         apiKey: "AIzaSyA6WJKLL0oRC0pGmVNho0JP0sOSslib3gY",
         authDomain: "gatest-2a308.firebaseapp.com",
         projectId: "gatest-2a308",
@@ -21,10 +21,11 @@
       window.addEventListener(
         "message",
         (e) => {
-          console.log("window received message:  " + e.data, e);
-          const sdcsdcds = JSON.parse(e.data);
-          window.ReactNativeWebView.postMessage(sdcsdcds.eventName);
-          analytics.logEvent(sdcsdcds.eventName, {});
+          const receiveMessage = JSON.parse(e.data);
+          if (window?.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage(receiveMessage.eventName);
+          }
+          analytics.logEvent(receiveMessage.eventName, { ...receiveMessage.params});
         },
         false
       );
@@ -32,10 +33,11 @@
       document.addEventListener(
         "message",
         (e) => {
-          console.log("document received message:  " + e.data, e);
-          const sdcsdcds = JSON.parse(e.data);
-          window.ReactNativeWebView.postMessage(sdcsdcds.eventName);
-          analytics.logEvent(sdcsdcds.eventName, {});
+          const receiveMessage = JSON.parse(e.data);
+          if (window?.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage(receiveMessage.eventName);
+          }
+          analytics.logEvent(receiveMessage.eventName, { ...receiveMessage.params});
         },
         false
       );
