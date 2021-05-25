@@ -4,7 +4,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
   </head>
   <body>
-    <h1>Test 14</h1>
+    <h1>Test 15</h1>
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyA6WJKLL0oRC0pGmVNho0JP0sOSslib3gY",
@@ -22,8 +22,8 @@
         "message",
         (e) => {
           const receiveMessage = JSON.parse(e.data);
-          window?.ReactNativeWebView?.postMessage(receiveMessage.eventName);
-          analytics.logEvent(receiveMessage.eventName, { });
+          window.ReactNativeWebView.postMessage(receiveMessage.eventName);
+          // analytics.logEvent(receiveMessage.eventName, { });
         },
         false
       );
@@ -32,8 +32,8 @@
         "message",
         (e) => {
           const receiveMessage = JSON.parse(e.data);
-          window?.ReactNativeWebView?.postMessage(receiveMessage.eventName);
-          analytics.logEvent(receiveMessage.eventName, { });
+          window.ReactNativeWebView.postMessage(receiveMessage.eventName);
+          // analytics.logEvent(receiveMessage.eventName, { });
         },
         false
       );
