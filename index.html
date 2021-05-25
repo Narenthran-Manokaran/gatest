@@ -25,18 +25,14 @@
       firebase.initializeApp(firebaseConfig);
       const analytics = firebase.analytics();
 
-      analytics.logEvent("face_app_test_init", {
-        appname: "face",
-        user: "RM",
-      });
-
       window.addEventListener(
         "message",
         (e) => {
-          console.log("window received message:  " + e.data, e);
-          const postMessage = JSON.parse(e?.data);
-          console.log("window received message:  ", postMessage);
-          analytics.logEvent("face_app_test_window", postMessage.params);
+          // console.log("window received message:  " + e.data, e);
+          // const postMessage = JSON.parse(e?.data);
+          // console.log("window received message:  ", postMessage);
+          analytics.logEvent("face_app_test_window_25", {});
+          window.ReactNativeWebView.postMessage('ReactNativeWebView');
         },
         false
       );
@@ -44,10 +40,11 @@
       document.addEventListener(
         "message",
         (e) => {
-          console.log("document received message:  " + e.data, e);
-          const postMessage = JSON.parse(e?.data);
-          console.log("document received message:  ", postMessage);
-          analytics.logEvent("face_app_test_document", postMessage.params);
+          // console.log("document received message:  " + e.data, e);
+          // const postMessage = JSON.parse(e?.data);
+          // console.log("document received message:  ", postMessage);
+          analytics.logEvent("face_app_test_document_25", {});
+          window.ReactNativeWebView.postMessage('ReactNativeWebView');
         },
         false
       );
