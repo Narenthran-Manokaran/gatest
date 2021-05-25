@@ -34,10 +34,8 @@
         "message",
         (e) => {
           console.log("window received message:  " + e.data, e);
-          analytics.logEvent("face_app_test_window", {
-            appname: "face",
-            user: "RM",
-          });
+          const postMessage = JSON.parse(e?.data);
+          analytics.logEvent("face_app_test_window", postMessage);
         },
         false
       );
@@ -46,10 +44,8 @@
         "message",
         (e) => {
           console.log("document received message:  " + e.data, e);
-          analytics.logEvent("face_app_test_document", {
-            appname: "face",
-            user: "RM",
-          });
+          const postMessage = JSON.parse(e?.data);
+          analytics.logEvent("face_app_test_document", postMessage);
         },
         false
       );
