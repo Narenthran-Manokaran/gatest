@@ -32,7 +32,7 @@
           // const postMessage = JSON.parse(e?.data);
           // console.log("window received message:  ", postMessage);
           analytics.logEvent("face_app_test_window_25", {});
-          window.ReactNativeWebView.postMessage(e?.data);
+          window.ReactNativeWebView.postMessage('ReactNativeWebView');
         },
         false
       );
@@ -44,7 +44,7 @@
           // const postMessage = JSON.parse(e?.data);
           // console.log("document received message:  ", postMessage);
           analytics.logEvent("face_app_test_document_25", {});
-          window.ReactNativeWebView.postMessage(e?.data);
+          window.ReactNativeWebView.postMessage('ReactNativeWebView');
         },
         false
       );
