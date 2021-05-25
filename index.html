@@ -24,9 +24,9 @@
       window.addEventListener(
         "message",
         (e) => {
+          alert('window');
           const postMessage = JSON.parse(e?.data);
           const { eventName = "", params = {} } = postMessage || {};
-          alert(eventName);
           if (eventName) {
             analytics.logEvent(eventName, params);
           }
@@ -37,10 +37,10 @@
       document.addEventListener(
         "message",
         (e) => {
+          alert('document');
           const postMessage = JSON.parse(e?.data);
           const { eventName = "", params = {} } = postMessage || {};
           if (eventName) {
-            alert(eventName);
             analytics.logEvent(eventName, params);
           }
         },
