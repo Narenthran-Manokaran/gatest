@@ -22,7 +22,8 @@
         "message",
         (e) => {
           console.log("window received message:  " + e.data, e);
-          window.ReactNativeWebView.postMessage(e.data);
+          const sdcsdcds = JSON.parse(e.data);
+          window.ReactNativeWebView.postMessage(sdcsdcds.eventName);
         },
         false
       );
@@ -31,7 +32,8 @@
         "message",
         (e) => {
           console.log("document received message:  " + e.data, e);
-          window.ReactNativeWebView.postMessage(e.data);
+          const sdcsdcds = JSON.parse(e.data);
+          window.ReactNativeWebView.postMessage(sdcsdcds.eventName);
         },
         false
       );
