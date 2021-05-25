@@ -22,10 +22,7 @@
         (e) => {
           const receiveMessage = JSON.parse(e.data);
           window.ReactNativeWebView.postMessage(receiveMessage.eventName);
-          // analytics.logEvent(receiveMessage.eventName, {
-          //   ...receiveMessage.params,
-          // });
-          analytics.logEvent(receiveMessage.eventName,{});
+          analytics.logEvent(receiveMessage.eventName,receiveMessage.params);
         },
         false
       );
